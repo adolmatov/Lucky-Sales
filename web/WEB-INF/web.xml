@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+		  http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+           version="3.0">
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>Servlets.UserServlets.LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Registration</servlet-name>
+        <servlet-class>Servlets.UserServlets.RegisrationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Registration</servlet-name>
+        <url-pattern>/registration</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>RightfsCheck</servlet-name>
+        <servlet-class>Servlets.UserServlets.RightsCheck</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RightfsCheck</servlet-name>
+        <url-pattern>/rightscheck</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ShowProductsServlet</servlet-name>
+        <servlet-class>Servlets.UserServlets.ShowProductsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShowProductsServlet</servlet-name>
+        <url-pattern>/products</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ShowProductServlet</servlet-name>
+        <servlet-class>Servlets.UserServlets.ProductServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShowProductServlet</servlet-name>
+        <url-pattern>/product</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddToBasketServlet</servlet-name>
+        <servlet-class>Servlets.UserServlets.AddToBasketServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddToBasketServlet</servlet-name>
+        <url-pattern>/add</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>AddToBasketFilter</filter-name>
+        <filter-class>Servlets.Filters.AddToBasketFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AddToBasketFilter</filter-name>
+        <servlet-name>AddToBasketServlet</servlet-name>
+        <url-pattern>/add/*</url-pattern>
+    </filter-mapping>
+    
+    <filter>
+        <filter-name>productFilter</filter-name>
+        <filter-class>Servlets.Filters.ProductFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>productFilter</filter-name>
+        <servlet-name>ShowProductServlet</servlet-name>
+        <url-pattern>/product/*</url-pattern>
+    </filter-mapping>
+
+
+    <welcome-file-list>
+        <welcome-file>homepage.html</welcome-file>
+
+
+    </welcome-file-list>
+    <session-config>
+
+        <session-timeout>30</session-timeout>
+
+    </session-config>
+
+
+</web-app>
